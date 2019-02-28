@@ -8,7 +8,6 @@ RUN addgroup -g 1000 -S docker && \
   adduser -u 1000 -S -G docker docker
 
 WORKDIR ${INSTALL_PATH}
-RUN chown docker:docker .
 
 # bundle install
 COPY Gemfile Gemfile.lock ./
@@ -30,7 +29,16 @@ RUN wget -O /microscanner https://get.aquasec.com/microscanner && \
   /microscanner ${AQUA_MICROSCANNER_TOKEN} --continue-on-failure && \
 rm -rf /microscanner
 
-COPY --chown=docker:docker . .
+ARG INSTITUTION
+COPY institutions/shared/javascripts ./javascripts
+COPY institutions/shared/sass ./sass
+COPY institutions/shared/error.asp ./error.asp
+COPY institutions/shared/index-dev.html ./index-dev.html
+COPY institutions/shared/index-prod.html ./index-prod.html
+COPY institutions/shared/mustaches.yml ./mustaches.yml
+COPY institutions/${INSTITUTION}/views ./views
+COPY compile.rb ./compile.rb
+RUN chown -R docker:docker ./
 USER docker
 
 RUN mkdir -p /home/docker/.lftp \
