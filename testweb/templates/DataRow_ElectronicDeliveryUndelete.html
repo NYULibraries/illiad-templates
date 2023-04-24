@@ -1,0 +1,51 @@
+  <div class="card">
+    <div id="request<#DATAROW field='TransactionNumber'>">
+      <div class="card-body">
+			  <div class="row">
+			  	
+				 <div class="col-lg-8 col-md-12">
+						<div class="h4 card-title">
+							<a href="<#ACTION action='10' form='63'>&amp;Value=<#DATAROW field='TransactionNumber'>"><#DATAROW field='Title'></a>
+						</div>
+						<div class="h5 card-subtitle text-muted"><#DATAROW field='Author'></div>
+			
+					</div>
+
+				 <div class="col-lg-4 col-md-12 text-right">
+					<div class="btn-group" role="group" aria-label="Actions for Request <#DATAROW field='TransactionNumber'>">						
+						<a class="btn btn-primary menuUndeletePdf" href="<#ACTION action='21' type='11'>&amp;Value=<#DATAROW field='TransactionNumber'>">
+							<span class="fa-stack align-top">
+								<span class="fas fa-trash-alt fa-stack-1x"></span>
+								<span class="fas fa-ban fa-stack-1x text-danger"></span>	
+							</span>							
+							Undelete
+						</a>
+					  	<div class="btn-group" role="group">
+						<button id="btnGroupDrop<#DATAROW field='TransactionNumber'>" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  Actions
+						</button>
+						<div class="dropdown-menu" aria-labelledby="btnGroupDrop<#DATAROW field='TransactionNumber'>">
+							<a class="dropdown-item btn btn-light" href="<#ACTION action='10' form='63'>&amp;Value=<#DATAROW field='TransactionNumber'>"><span class="fas fa-info-circle mr-1"></span>Details</a>
+							<a class="dropdown-item btn btn-light menuEdit <#DATAROW field='RequestActionAllowed' name='Edit' disabledValue='disabled'>" href="<#ACTION action='20' form='63'>&amp;Value=<#DATAROW field='TransactionNumber'>"><span aria-hidden="true" class="fas fa-edit text-primary"></span>  Edit</a>
+							<a class="dropdown-item btn btn-light menuResubmit <#DATAROW field='RequestActionAllowed' name='Resubmit' disabledValue='disabled'>"	href="<#ACTION action='11' form='71'>&amp;Value=<#DATAROW field='TransactionNumber'>"><span aria-hidden="true" class="fas fa-redo"></span>  Resubmit Request</a>
+							<a class="dropdown-item btn btn-light menuClone <#DATAROW field='RequestActionAllowed' name='Clone' disabledValue='disabled'>" href="<#ACTION action='11' form='110'>&amp;Value=<#DATAROW field='TransactionNumber'>"><span aria-hidden="true" class="fas fa-copy text-primary"></span>  Clone Request</a>
+						</div>						
+					  </div>
+					</div>
+				</div>
+			  </div>
+
+
+			<div class="row">
+				<div class="col-lg-7 col-md-12"></div>
+					<div class="col-lg-5 col-md-12 text-right">
+						<div class="field mb2 text-muted">
+							<span class="field-value font-weight-bold">
+								<#DATAROW field='TransactionStatus'>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

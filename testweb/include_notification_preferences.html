@@ -1,0 +1,105 @@
+<div id="NotificationPreferences">
+	<script type="text/javascript" src="js/userNotificationPreferences.js"></script>
+    <input type="hidden" name="UseGranularNotifications" value="Yes">
+    <div class="notificationPreferences">
+        <div class="form-group col-md-10">
+            <div id="AccountPreferences">
+                <h3>Account Notification Preferences</h3>
+				<br>
+				
+				<div class="row">
+					<div class="col-3 offset-5 offset-sm-6"><h4 id="Account-Notification-Email-Label">Email</h4></div>
+					<div class="col-3"><h4 id="Account-Notification-SMS-Label">Text/SMS</h4></div>
+				</div>
+				
+				<div class="row">
+					<div class="col-3 offset-6">
+						<span data-notification-check="Email" data-notification-action="all"><input class="btn btn-primary btn-md" type="button" aria-label="Select all email options for account notifications" onclick='SelectAll("notification1")' value="All" disabled/></span>
+						<span data-notification-check="Email" data-notification-action="none"><input class="btn btn-primary btn-md" type="button" aria-label="Unselect all email options for account notifications" onclick='UnSelectAll("notification1")' value="None" disabled/></span>
+					</div>
+					<div class="col-3">
+						<span data-notification-check="Text" data-notification-action="all"><input class="btn btn-primary btn-md" type="button" aria-label="Select all text/sms options for account notifications" onclick='SelectAll("notification2")' value="All"/></span>
+						<span data-notification-check="Text" data-notification-action="none"><input class="btn btn-primary btn-md" type="button" aria-label="Unselect all text/sms options for account notifications" onclick='UnSelectAll("notification2")' value="None"/></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6" id="ClearedUser-Label">Notify me when my account has been cleared</div>
+					<div class="col-3"><input class="notification1" type="checkbox" id="Placeholder_ClearedUser_Email" name="Placeholder_ClearedUser_Email" aria-labelledby="Account-Notification-Email-Label ClearedUser-Label" checked="checked" disabled="disabled"></div>
+					<div class="col-3"><input class="notification2" type="checkbox" id="Notification_ClearedUser_SMS" name="Notification_ClearedUser_SMS" aria-labelledby="Account-Notification-SMS-Label ClearedUser-Label" value="Yes" <#CHECKED name='Notification_ClearedUser_SMS'>></div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-6" id="PasswordReset-Label">Notify me when I request a password reset</div>
+					<div class="col-3"><input class="notification1" type="checkbox" id="Placeholder_PasswordReset_Email" name="Placeholder_PasswordReset_Email" aria-labelledby="Account-Notification-Email-Label PasswordReset-Label" checked="checked" disabled="disabled"></div>
+					<div class="col-3"><input class="notification2" type="checkbox" id="Notification_PasswordReset_SMS" name="Notification_PasswordReset_SMS" aria-labelledby="Account-Notification-SMS-Label PasswordReset-Label" value="Yes" <#CHECKED name='Notification_PasswordReset_SMS'>></div>
+				</div>
+            </div>
+			<br>
+			
+            <div id="RequestPreferences">
+                <h3>Request Notification Preferences</h3>
+				<br>
+				
+				<div class="row">
+					<div class="col-3 offset-5 offset-sm-6"><h4 id="Request-Notification-Email-Label">Email</h4></div>
+					<div class="col-3"><h4 id="Request-Notification-SMS-Label">Text/SMS</h4></div>
+				</div>
+			
+				<div class="row">
+					<div class="col-3 offset-6">
+						<span data-notification-check="Email" data-notification-action="all"><input class="btn btn-primary btn-md" type="button" aria-label="Select all email options for request notifications" onclick='SelectAll("notification3")' value="All"/></span>
+						<span data-notification-check="Email" data-notification-action="none"><input class="btn btn-primary btn-md" type="button" aria-label="Unselect all email options for request notifications" onclick='UnSelectAll("notification3")' value="None"/></span>
+					</div>
+					<div class="col-3">
+						<span data-notification-check="Text" data-notification-action="all"><input class="btn btn-primary btn-md" type="button" aria-label="Select all text/sms options for request notifications" onclick='SelectAll("notification4")' value="All"/></span>
+						<span data-notification-check="Text" data-notification-action="none"><input class="btn btn-primary btn-md" type="button" aria-label="Unselect all text/sms options for request notifications" onclick='UnSelectAll("notification4")' value="None"/></span>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-6" id="RequestPickup-Label">Notify me when my request is ready for pickup</div>
+					<div class="col-3"><input type="checkbox" class="notification3" id="Notification_RequestPickup_Email" name="Notification_RequestPickup_Email" aria-labelledby="Request-Notification-Email-Label RequestPickup-Label" value="Yes" <#CHECKED name='Notification_RequestPickup_Email' default='True'>></div>
+					<div class="col-3"><input type="checkbox" class="notification4" id="Notification_RequestPickup_SMS" name="Notification_RequestPickup_SMS" aria-labelledby="Request-Notification-SMS-Label RequestPickup-Label" value="Yes" <#CHECKED name='Notification_RequestPickup_SMS' default='True'>></div>
+				</div>
+				<br>
+			
+				<div class="row">
+					<div class="col-6" id="RequestShipped-Label">Notify me when my request has been shipped</div>
+					<div class="col-3"><input type="checkbox" class="notification3" id="Notification_RequestShipped_Email" name="Notification_RequestShipped_Email" aria-labelledby="Request-Notification-Email-Label RequestShipped-Label" value="Yes" <#CHECKED name='Notification_RequestShipped_Email' default='True'>></div>
+					<div class="col-3"><input type="checkbox" class="notification4" id="Notification_RequestShipped_SMS" name="Notification_RequestShipped_SMS" aria-labelledby="Request-Notification-SMS-Label RequestShipped-Label" value="Yes" <#CHECKED name='Notification_RequestShipped_SMS' default='True'>></div>
+				</div>
+				<br>
+				
+				<div class="row">
+					<div class="col-6" id="RequestElectronicDelivery-Label">Notify me when my request has been delivered electronically</div>
+					<div class="col-3"><input type="checkbox" class="notification3" id="Notification_RequestElectronicDelivery_Email" name="Notification_RequestElectronicDelivery_Email" aria-labelledby="Request-Notification-Email-Label RequestElectronicDelivery-Label" value="Yes" <#CHECKED name='Notification_RequestElectronicDelivery_Email' default='True'>></div>
+					<div class="col-3"><input type="checkbox" class="notification4" id="Notification_RequestElectronicDelivery_SMS" name="Notification_RequestElectronicDelivery_SMS" aria-labelledby="Request-Notification-SMS-Label RequestElectronicDelivery-Label" value="Yes" <#CHECKED name='Notification_RequestElectronicDelivery_SMS' default='True'>></div>
+				</div>
+				<br>
+				
+				<div class="row">
+					<div class="col-6" id="RequestOverdue-Label">Notify me when my checked out material is overdue</div>
+					<div class="col-3"><input type="checkbox" class="notification3" id="Notification_RequestOverdue_Email" name="Notification_RequestOverdue_Email" aria-labelledby="Request-Notification-Email-Label RequestOverdue-Label" value="Yes" <#CHECKED name='Notification_RequestOverdue_Email' default='True'>></div>
+					<div class="col-3"><input type="checkbox" class="notification4" id="Notification_RequestOverdue_SMS" name="Notification_RequestOverdue_SMS" aria-labelledby="Request-Notification-SMS-Label RequestOverdue-Label" value="Yes" <#CHECKED name='Notification_RequestOverdue_SMS' default='True'>></div>
+				</div>
+				<br>
+				
+				<div class="row">
+					<div class="col-6" id="RequestCancelled-Label">Notify me when my request has been cancelled</div>
+					<div class="col-3"><input type="checkbox" class="notification3" id="Notification_RequestCancelled_Email" name="Notification_RequestCancelled_Email" aria-labelledby="Request-Notification-Email-Label RequestCancelled-Label" value="Yes" <#CHECKED name='Notification_RequestCancelled_Email' default='True'>></div>
+					<div class="col-3"><input type="checkbox" class="notification4" id="Notification_RequestCancelled_SMS" name="Notification_RequestCancelled_SMS" aria-labelledby="Request-Notification-SMS-Label RequestCancelled-Label" value="Yes" <#CHECKED name='Notification_RequestCancelled_SMS'>></div>
+				</div>
+				<br>
+				
+				<div class="row">
+					<div class="col-6" id="RequestOther-Label">Notify me when the library has other information about my request</div>
+					<div class="col-3"><input type="checkbox" id="Placeholder_RequestOther_Email" name="Placeholder_RequestOther_Email" aria-labelledby="Request-Notification-Email-Label RequestOther-Label" checked="checked" disabled="disabled"></div>
+					<div class="col-3"><input type="checkbox" class="notification4" id="Notification_RequestOther_SMS" name="Notification_RequestOther_SMS" aria-labelledby="Request-Notification-SMS-Label RequestOther-Label" value="Yes" <#CHECKED name='Notification_RequestOther_SMS'>></div>
+				</div>
+				<br>
+				
+			</div>
+		</div>
+	</div>
+</div>
