@@ -4,7 +4,7 @@ class Layout < Mustache
 	include Helper
   
   def page_title
-    "BobCat - ILL - #{page_name}"
+    "NYU Libraries - ILL - #{page_name}"
   end
   
   def page_name
