@@ -62,8 +62,7 @@ class Form < Layout
       {:value => "HOMED", :title => "Continental US (Home Delivery)"},
       {:value => "NY-GLOBAL", :title => "NYU  Remote (Global)"},
       {:value => "NYUAB", :title => "NYU Abu Dhabi Campus"},
-      {:value => "NYUSH-MAIN", :title => "NYU Shanghai (Academic Building)"},
-      {:value => "NYUSH-REMOTE",:title => "NYU Shanghai Remote"},
+      {:value => "NYUSH-MAIN", :title => "NYU Shanghai Campus"},
       {:value => "OTHER", :title => "Other (Tell us more in the Notes)"},
     ]
   end
