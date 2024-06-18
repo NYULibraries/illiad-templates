@@ -10,6 +10,13 @@ env-vars: &env-vars
     IMAGE_NAME: illiad-templates
     COMPOSE_PROJECT_NAME: illiad-templates
 
+aws_env: &aws_env
+  run:
+    name: Export AWS env vars
+    command: |
+      echo 'export AWS_ACCESS_KEY_ID=${WEB_CDN_AWS_ACCESS_KEY_ID}' >> $BASH_ENV
+      echo 'export AWS_SECRET_ACCESS_KEY=${WEB_CDN_AWS_SECRET_ACCESS_KEY}' >> $BASH_ENV
+
 build_docker: &build_docker
   run:
     name: Build Docker
@@ -80,6 +87,7 @@ jobs:
       - <<: *build_docker
       - <<: *push_docker
       - <<: *compile
+      - <<: *aws_env
       - <<: *aws-sync-s3
   
   build-image-prod:
@@ -91,6 +99,7 @@ jobs:
       - <<: *build_docker
       - <<: *push_docker
       - <<: *compile
+      - <<: *aws_env
       - <<: *aws-sync-s3
 
   deploy-dev:
