@@ -53,6 +53,8 @@ compile: &compile
     name: Compile and copy CSS and JS assets 
     command: |
       docker compose run compile
+      echo "Listing all containers for debugging:"
+      docker ps -a
       CONTAINER_NAME=$(docker ps -a --filter "name=illiad-templates_compile_run_" --format "{{.Names}}")
       echo "Container name: $CONTAINER_NAME"
       if [ -n "$CONTAINER_NAME" ]; then
