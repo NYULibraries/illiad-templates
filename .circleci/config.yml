@@ -52,8 +52,15 @@ compile: &compile
   run:
     name: Compile and copy CSS and JS assets 
     command: |
-      docker-compose run compile
-      docker cp `docker ps -a --filter "name=illiad-templates_compile_run_" --format "{{.Names}}"`:/app/dist .
+      docker compose run compile
+      CONTAINER_NAME=$(docker ps -a --filter "name=illiad-templates_compile_run_" --format "{{.Names}}")
+      echo "Container name: $CONTAINER_NAME"
+      if [ -n "$CONTAINER_NAME" ]; then
+        docker cp $CONTAINER_NAME:/app/dist .
+      else
+        echo "No container found matching the name pattern."
+        exit 1
+      fi
 
 # Note that `aws s3 sync ... --exact-timestamps` only works for downloads from S3,
 # not uploads: https://github.com/aws/aws-cli/issues/4460.  The only safe way
