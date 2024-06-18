@@ -15,7 +15,7 @@ build_docker: &build_docker
     name: Build Docker
     command: |
       export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
-      docker compose -f docker compose.build.yml build
+      docker compose -f docker-compose.build.yml build
 
 auth_quay: &auth_quay
   run:
