@@ -66,6 +66,9 @@ aws-sync-s3: &aws-sync-s3
     command: |
       aws s3 cp --recursive --exclude "*" --include "javascripts/illiad.js" --include "stylesheets/illiad.css" dist ${S3_URI}/illiad && \
       aws s3 sync --delete --exclude "*" --include "javascripts/illiad.js" --include "stylesheets/illiad.css" dist ${S3_URI}/illiad
+    environment:
+      AWS_ACCESS_KEY_ID: $WEB_CDN_AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $WEB_CDN_AWS_SECRET_ACCESS_KEY
 
 jobs:
   build-image-dev:
