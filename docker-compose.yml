@@ -1,4 +1,3 @@
-version: '3.7'
 x-build-image: &build-image
   build:
     context: .
