@@ -69,7 +69,6 @@ jobs:
     <<: *machine-defaults
     steps:
       - checkout
-      - setup_remote_docker
       - <<: *auth_quay
       - <<: *pull_docker
       - <<: *build_docker
@@ -81,7 +80,6 @@ jobs:
     <<: *machine-defaults
     steps:
       - checkout
-      - setup_remote_docker
       - <<: *auth_quay
       - <<: *pull_docker
       - <<: *build_docker
@@ -92,7 +90,6 @@ jobs:
   deploy-dev:
     <<: *machine-defaults
     steps:
-      - setup_remote_docker
       - <<: *auth_quay
       - run:
           name: Export Hermes Dev env vars
@@ -104,7 +101,6 @@ jobs:
   deploy-prod:
     <<: *machine-defaults
     steps:
-      - setup_remote_docker
       - <<: *auth_quay
       - run:
           name: Export Hermes Prod env vars
