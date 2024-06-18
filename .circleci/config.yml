@@ -1,10 +1,14 @@
+version: 2.1
+
 machine-defaults: &machine-defaults
   machine:
     image: ubuntu-2204:current
-    environment:
-      IMAGE_NAME: illiad-templates
-      COMPOSE_PROJECT_NAME: illiad-templates
   working_directory: ~/app
+
+env-vars: &env-vars
+  environment:
+    IMAGE_NAME: illiad-templates
+    COMPOSE_PROJECT_NAME: illiad-templates
 
 build_docker: &build_docker
   run:
@@ -63,10 +67,9 @@ aws-sync-s3: &aws-sync-s3
       aws s3 cp --recursive --exclude "*" --include "javascripts/illiad.js" --include "stylesheets/illiad.css" dist ${S3_URI}/illiad && \
       aws s3 sync --delete --exclude "*" --include "javascripts/illiad.js" --include "stylesheets/illiad.css" dist ${S3_URI}/illiad
 
-version: 2.1
 jobs:
   build-image-dev:
-    <<: *machine-defaults
+    <<: [*machine-defaults, *env-vars]
     steps:
       - checkout
       - <<: *auth_quay
@@ -77,7 +80,7 @@ jobs:
       - <<: *aws-sync-s3
   
   build-image-prod:
-    <<: *machine-defaults
+    <<: [*machine-defaults, *env-vars]
     steps:
       - checkout
       - <<: *auth_quay
@@ -88,7 +91,7 @@ jobs:
       - <<: *aws-sync-s3
 
   deploy-dev:
-    <<: *machine-defaults
+    <<: [*machine-defaults, *env-vars]
     steps:
       - <<: *auth_quay
       - run:
@@ -99,7 +102,7 @@ jobs:
       - <<: *hermes_deploy
 
   deploy-prod:
-    <<: *machine-defaults
+    <<: [*machine-defaults, *env-vars]
     steps:
       - <<: *auth_quay
       - run:
@@ -110,7 +113,6 @@ jobs:
       - <<: *hermes_deploy
 
 workflows:
-  version: 2.1
   deploy:
     jobs:
       - build-image-dev:
