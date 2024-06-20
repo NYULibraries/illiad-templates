@@ -8,7 +8,6 @@ machine-defaults: &machine-defaults
 env-vars: &env-vars
   environment:
     IMAGE_NAME: illiad-templates
-    COMPOSE_PROJECT_NAME: illiad-templates
 
 aws_env: &aws_env
   run:
