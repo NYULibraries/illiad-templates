@@ -58,12 +58,9 @@ class Form < Layout
       {:value => "NIFA", :title => "NYU New York (IFA Pickup)"},
       {:value => "NREI", :title => "NYU New York (Jack Brause Pickup)"},
       {:value => "NISAW", :title => "NYU New York (ISAW Pickup)"},
-      {:value => "HOMED", :title => "NYU New York (Home Delivery)"},
-      {:value => "HOMED", :title => "Continental US (Home Delivery)"},
-      {:value => "NY-GLOBAL", :title => "NYU  Remote (Global)"},
+      {:value => "HOMED", :title => "Home Delivery (Faculty & PhD only)"},
       {:value => "NYUAB", :title => "NYU Abu Dhabi Campus"},
       {:value => "NYUSH-MAIN", :title => "NYU Shanghai Campus"},
-      {:value => "OTHER", :title => "Other (Tell us more in the Notes)"},
     ]
   end
 
