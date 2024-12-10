@@ -39,6 +39,14 @@ cp error.asp $illiad_pages_dir/illiad/error.asp
 cp dist/views/*.html $illiad_pages_dir/illiad/
 cp dist/javascripts/illiad.js  $illiad_pages_dir/illiad/javascripts/illiad.js
 cp dist/stylesheets/illiad.css $illiad_pages_dir/illiad/stylesheets/illiad.css
+# NYU (ZYU) views to their institution
+# index and error pages in /illiad/ZYU/
+cp index-$illiad_env.html $illiad_pages_dir/illiad/ZYU/index.html
+cp error.asp $illiad_pages_dir/illiad/ZYU/error.asp
+# compiled NYU (ZYU) views copied to /illiad/ZYU pages
+cp dist/views/*.html $illiad_pages_dir/illiad/ZYU/
+cp dist/javascripts/illiad.js  $illiad_pages_dir/illiad/ZYU/javascripts/illiad.js
+cp dist/stylesheets/illiad.css $illiad_pages_dir/illiad/ZYU/stylesheets/illiad.css
 # TNS (ZMU) views copied to their institution 
 cp institutions/ZMU/views/*.html $illiad_pages_dir/illiad/ZMU/
 cp institutions/ZMU/javascripts/illiad.js $illiad_pages_dir/illiad/ZMU/javascripts/illiad.js
